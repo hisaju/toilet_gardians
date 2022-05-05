@@ -1,3 +1,27 @@
 - @toilets.each do |toilet|
   article.post
     h4 = toilet.name
+    .media
+      .media-left
+        i.fa.fa-tablet-alt
+      .media-content
+        .content
+          .field.is-horizontal
+            .field-label.is-small
+              label.label タブレット用URL
+            .field-body style="flex-grow: 4"
+              .field
+                .control
+                  = text_field_tag :tablet_url, tablet_dashboard_url(uuid: toilet.uuid), class: 'input is-small'
+    .media
+      .media-left
+        i.fa.fa-mobile-alt
+      .media-content
+        .content
+          .field.is-horizontal
+            .field-label.is-small
+              label.label 利用者用URL
+            .field-body style="flex-grow: 4"
+              .field
+                .control
+                  = text_field_tag :waiting_url, waiting_dashboard_url(uuid: toilet.uuid), class: 'input is-small'

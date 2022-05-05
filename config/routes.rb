@@ -10,4 +10,13 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :toilets
   end
+
+  namespace :tablet do
+    get '/:uuid', to: 'dashboards#index', as: 'dashboard'
+  end
+
+  namespace :waiting do
+    get '/:uuid', to: 'dashboards#index', as: 'dashboard'
+  end
+
 end
