@@ -1,0 +1,13 @@
+article.post
+  = form_with model: [:manager, toilet] do |f|
+    .field.is-grouped.is-horizontal
+      .field-label.is-normal
+        label.label トイレ名
+      .control.is-expanded.has-icons-left
+        = f.text_field :name, class: 'input'
+        span.icon.is-left
+          i.fas.fa-toilet
+      p.control
+        = f.submit '登録', class: 'button is-info'
+    = full_error_message_on(toilet, :name)
+

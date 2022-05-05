@@ -1,0 +1,7 @@
+section.container
+  .columns
+    .column.is-offset-3.is-6
+      #new-form.box.content
+        = render partial: 'form', locals: { toilet: @toilet }
+      #toilet-list.box.content
+        = render partial: 'toilets', locals: {toilets: @toilets}

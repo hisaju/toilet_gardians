@@ -1,0 +1,5 @@
+= turbo_stream.update 'new-form' do
+  = render partial: 'form', locals: { toilet: @toilet }
+
+= turbo_stream.update 'toilet-list' do
+  = render partial: 'toilets', locals: {toilets: @toilets}
