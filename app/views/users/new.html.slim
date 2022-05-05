@@ -1,0 +1,36 @@
+section.hero.is-success.is-fullheight
+  .hero-body
+    .container.has-text-centered
+      .column.is-4.is-offset-4
+        h3.title.has-text-white トイレ登録
+        hr.login-hr/
+        p.subtitle.has-text-white トイレと管理者情報を登録してください
+        .box
+          figure.avatar.mb-2
+            = image_tag 'icon.png', style: 'width: 64px;'
+          = form_with model: @user, url: users_path, local: true, data: {turbo: false} do |f|
+            = f.fields_for :toilets do |t|
+              .field
+                .label.has-text-black.has-text-left トイレ名
+                .control
+                  = t.text_field :name, class: 'input is-large', autocomplete: 'off'
+                = full_error_message_on(t.object, :name)
+            .field
+              .label.has-text-black.has-text-left メールアドレス
+              .control
+                = f.text_field :email, class: 'input is-large', autocomplete: 'off'
+              = full_error_message_on(@user, :email)
+            .field
+              .label.has-text-black.has-text-left パスワード
+              .control
+                = f.password_field :password, class: 'input is-large', autocomplete: 'off'
+              = full_error_message_on(@user, :password)
+            .field
+              .label.has-text-black.has-text-left パスワード（確認用)
+              .control
+                = f.password_field :password_confirmation, class: 'input is-large', autocomplete: 'off'
+              = full_error_message_on(@user, :password_confirmation)
+
+            button.button.is-block.is-info.is-large.is-fullwidth
+              | トイレと管理者を登録
+              i.fa.fa-sign-in aria-hidden="true" 

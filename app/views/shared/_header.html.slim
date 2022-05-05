@@ -1,0 +1,31 @@
+nav.navbar.is-white.topNav
+  .container
+    .navbar-brand
+      = image_tag 'logo_small.png'
+      .navbar-burger.burger data-target="topNav" 
+        span
+        span
+        span
+    #topNav.navbar-menu
+      .navbar-start
+      .navbar-end
+        .navbar-item
+          .field.is-grouped
+            - if logged_in?
+              p.control
+                = link_to user_session_path, data: { turbo_method: :delete }, class: 'button is-small is-danger is-outlined' do
+                  span.icon
+                    i.fa.fa-sign-out-alt
+                  span ログアウト
+            - else
+              p.control
+                a.button.is-small
+                  span.icon
+                    i.fa.fa-user-plus
+                  span
+                    | Register
+              p.control
+                a.button.is-small.is-info.is-outlined
+                  span.icon
+                    i.fa.fa-user
+                  span Login

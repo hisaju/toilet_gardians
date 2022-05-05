@@ -13,16 +13,16 @@
   border-top: 10px solid turquoise;
 }
 
-footer {
+footer.top {
   color: white;
   background: rgb(14, 14, 14) !important;
 }
 
-footer strong {
+footer.top strong {
   color: turquoise;
 }
 
-footer a {
+footer.top a {
   color: turquoise;
 }
 
@@ -84,16 +84,3 @@ hr.content-divider {
   background: hotpink;
 }
 
-.label {
-  color: white;
-}
-
-input {
-  background: transparent !important;
-  border: 1px solid turquoise !important;
-  color: white !important;
-}
-
-input::placeholder {
-  color: white !important;
-}

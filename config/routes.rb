@@ -3,4 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "tops#index"
+
+  resources :users, only: %i[new create]
+  resource :user_session, only: %i[new create destroy]
+
+  namespace :manager do
+    resources :toilets
+  end
 end

@@ -1,0 +1,23 @@
+section.hero.is-success.is-fullheight
+  .hero-body
+    .container.has-text-centered
+      .column.is-4.is-offset-4
+        h3.title.has-text-white ログイン
+        hr.login-hr/
+        - if flash[:danger]
+          p.subtitle.has-text-danger = flash[:danger]
+        .box
+          figure.avatar.mb-2
+            = image_tag 'icon.png', style: 'width: 64px;'
+          = form_with url: user_session_path, local: true, data: {turbo: false} do
+            .field
+              .label.has-text-black.has-text-left メールアドレス
+              .control
+                = text_field_tag :email, '', class: 'input is-large', autocomplete: 'off'
+            .field
+              .label.has-text-black.has-text-left パスワード
+              .control
+                = password_field_tag :password, '', class: 'input is-large', autocomplete: 'off'
+            button.button.is-block.is-info.is-large.is-fullwidth
+              | ログイン
+              i.fa.fa-sign-in aria-hidden="true" 
